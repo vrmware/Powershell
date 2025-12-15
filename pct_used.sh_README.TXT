@@ -1,0 +1,14 @@
+After installing the Telegraf agent on a Linux server, the following directory was created: /opt/vmware.
+In this directory, Create the following bash script: pct_used.sh. Please note that a script is executed from Telegraf using the system account arcuser.
+The arcuser account must have read and execute permissions for the script. Set the permissions using the following command:
+
+chmod 755 /opt/vmware/pct_used.sh
+
+The script below is a generic script for reading the % used from the datastores under /mnt. By providing the correct arguments you will receive a value (Use%) that you can use as a metric in VCF Operations as input for the alert. In the following examples:
+
+store1 = Linux Server
+001 = Datastore 001
+002 = Datastore 002
+Examples:
+root@vrmware001:/opt/vmware# ./pct_used.sh /mnt/store1/001
+Result: 70
